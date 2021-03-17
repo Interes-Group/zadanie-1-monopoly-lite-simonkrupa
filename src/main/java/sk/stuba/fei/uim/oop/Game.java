@@ -27,6 +27,7 @@ public class Game {
                 myObj.nextLine();
                 players[i].setPositionOfPlayer(rand.nextInt((6-1)+1)+1);
                 System.out.println("Your current position is: " + players[i].getPositionOfPlayer());
+
             }
         }
     }
