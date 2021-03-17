@@ -13,4 +13,16 @@ public class Player {
     public String getName() {
         return name;
     }
+
+    public int getPositionOfPlayer() {
+        return positionOfPlayer;
+    }
+
+    public void setPositionOfPlayer(int positionOfPlayer) {
+        System.out.println(positionOfPlayer);
+        this.positionOfPlayer = this.positionOfPlayer + positionOfPlayer;
+        if(this.positionOfPlayer > 23){
+            this.positionOfPlayer = this.positionOfPlayer - 24;
+        }
+    }
 }

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class PlayingArea {
     ArrayList<Box> area;
-    private int sizeOfArea = 24;
+    private final int sizeOfArea = 24;
 
     public PlayingArea () {
-        area = new ArrayList<Box>();
+        area = new ArrayList<>();
         for(int i = 0; i < sizeOfArea; i++){
             if(i == 0) {
                 area.add(new Start(i));
