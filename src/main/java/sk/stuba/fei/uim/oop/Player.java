@@ -3,6 +3,7 @@ package sk.stuba.fei.uim.oop;
 public class Player {
     private String name;
     private int numOfPlayer;
+    private int positionOfPlayer;
 
     public Player(String name, int numOfPlayer) {
         this.name = name;

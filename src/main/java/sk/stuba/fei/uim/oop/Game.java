@@ -1,6 +1,8 @@
 package sk.stuba.fei.uim.oop;
 
 
+import sk.stuba.fei.uim.oop.boxes.PlayingArea;
+
 import java.util.Scanner;
 
 public class Game {
@@ -16,5 +18,6 @@ public class Game {
             System.out.println("Name of player number "+ (i+1) + ": ");
             players[i] = new Player(myObj.nextLine(), i);
         }
+        PlayingArea gameArea = new PlayingArea();
     }
 }
