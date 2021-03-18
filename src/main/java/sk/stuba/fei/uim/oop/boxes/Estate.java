@@ -3,6 +3,7 @@ package sk.stuba.fei.uim.oop.boxes;
 import sk.stuba.fei.uim.oop.Player;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Estate extends Box{
     private final int penalty;
@@ -24,6 +25,14 @@ public class Estate extends Box{
 
     @Override
     public void trigger(Player player) {
+        Scanner obj = new Scanner(System.in);
         System.out.println(player.getName() + " is standing on estate, press 1 to buy or 0 to pass:");
+        int decision = obj.nextInt();
+        if (decision == 1){
+            System.out.println("You have decided to buy this property, cost is "+this.price);
+            player.setCash(-this.price);
+        } else{
+            System.out.println("You have decided to pass.");
+        }
     }
 }
