@@ -24,14 +24,14 @@ public class Game {
         PlayingArea gameArea = new PlayingArea();
         Random rand = new Random();
         while(players.length != 0){
-            for(int i = 0; i<players.length; i++){
-                System.out.println(players[i].getName() + " press enter to play: ");
+            for (Player player : players) {
+                System.out.println(player.getName() + " press enter to play: ");
                 myObj.nextLine();
-                playerThrow = rand.nextInt((6-1)+1)+1;
-                players[i].setPositionOfPlayer(playerThrow);
-                playerPosition = players[i].getPositionOfPlayer();
-                System.out.println("Your current position is: " + playerPosition);
-                gameArea.loopThrough(playerPosition, players[i]);
+                playerThrow = rand.nextInt((6 - 1) + 1) + 1;
+                player.setPositionOfPlayer(playerThrow);
+                playerPosition = player.getPositionOfPlayer();
+                System.out.println("Your current position is: " + playerPosition + " and your budget is: " + player.getCash());
+                gameArea.loopThrough(playerPosition, player);
             }
         }
     }

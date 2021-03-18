@@ -24,6 +24,8 @@ public class Player {
         System.out.println(positionOfPlayer);
         this.positionOfPlayer = this.positionOfPlayer + positionOfPlayer;
         if(this.positionOfPlayer > 23){
+            System.out.println(name + ", you passed the Start, you have received 1000 cash");
+            this.cash += 1000;
             this.positionOfPlayer = this.positionOfPlayer - 24;
         }
     }
