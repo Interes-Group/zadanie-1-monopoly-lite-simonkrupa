@@ -5,6 +5,7 @@ public class Player {
     private int numOfPlayer;
     private int positionOfPlayer;
     private int cash;
+    private boolean move = true;
 
     public Player(String name, int numOfPlayer) {
         this.name = name;
@@ -30,11 +31,23 @@ public class Player {
         }
     }
 
+    public void setPrisonPosition(){
+        this.positionOfPlayer = 6;
+    }
+
     public int getCash() {
         return cash;
     }
 
     public void setCash(int cash) {
         this.cash = this.cash + cash;
+    }
+
+    public boolean isMove() {
+        return move;
+    }
+
+    public void setMove(boolean move) {
+        this.move = move;
     }
 }

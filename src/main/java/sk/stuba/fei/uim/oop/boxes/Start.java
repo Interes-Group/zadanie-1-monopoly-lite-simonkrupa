@@ -15,6 +15,7 @@ public class Start extends Box {
 
     @Override
     public void trigger(Player player) {
+        System.out.println(player.getName() + " you are standing on Start, you have received extra 1000 cash");
         player.setCash(1000);
     }
 }

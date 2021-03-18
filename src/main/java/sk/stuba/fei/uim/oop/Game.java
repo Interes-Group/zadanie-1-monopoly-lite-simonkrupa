@@ -25,13 +25,19 @@ public class Game {
         Random rand = new Random();
         while(players.length != 0){
             for (Player player : players) {
-                System.out.println(player.getName() + " press enter to play: ");
-                myObj.nextLine();
-                playerThrow = rand.nextInt((6 - 1) + 1) + 1;
-                player.setPositionOfPlayer(playerThrow);
-                playerPosition = player.getPositionOfPlayer();
-                System.out.println("Your current position is: " + playerPosition + " and your budget is: " + player.getCash());
-                gameArea.loopThrough(playerPosition, player);
+                if (player.isMove()) {
+                    System.out.println('\n' + player.getName() + " press enter to play: ");
+                    myObj.nextLine();
+                    playerThrow = rand.nextInt((6 - 1) + 1) + 1;
+                    player.setPositionOfPlayer(playerThrow);
+                    playerPosition = player.getPositionOfPlayer();
+                    gameArea.loopThrough(playerPosition, player);
+
+                    System.out.println("Your current position is: " + player.getPositionOfPlayer() + " and your budget is: " + player.getCash());
+                } else{
+                    player.setMove(true);
+                    System.out.println('\n' + player.getName() + ", you are still in prison, wait one more round.");
+                }
             }
         }
     }

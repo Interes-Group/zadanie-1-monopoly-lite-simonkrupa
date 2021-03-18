@@ -12,4 +12,5 @@ public class Prison extends Box{
     public void trigger(Player player) {
         System.out.println(player.getName() + " visited prison.");
     }
+
 }
