@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class Game {
     private int numberOfPlayers;
     private Player players[];
+    private int playerPosition;
+    private int playerThrow;
 
     public Game() {
         Scanner myObj = new Scanner(System.in);
@@ -25,9 +27,11 @@ public class Game {
             for(int i = 0; i<players.length; i++){
                 System.out.println(players[i].getName() + " press enter to play: ");
                 myObj.nextLine();
-                players[i].setPositionOfPlayer(rand.nextInt((6-1)+1)+1);
-                System.out.println("Your current position is: " + players[i].getPositionOfPlayer());
-
+                playerThrow = rand.nextInt((6-1)+1)+1;
+                players[i].setPositionOfPlayer(playerThrow);
+                playerPosition = players[i].getPositionOfPlayer();
+                System.out.println("Your current position is: " + playerPosition);
+                gameArea.loopThrough(playerPosition, players[i]);
             }
         }
     }

@@ -9,6 +9,6 @@ public abstract class Box {
         this.position = position;
     }
 
-    public abstract void trigger();
+    public abstract void trigger(Player player);
 
 }

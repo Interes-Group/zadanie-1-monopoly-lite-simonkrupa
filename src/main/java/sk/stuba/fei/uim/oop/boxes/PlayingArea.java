@@ -1,9 +1,11 @@
 package sk.stuba.fei.uim.oop.boxes;
 
+import sk.stuba.fei.uim.oop.Player;
+
 import java.util.ArrayList;
 
 public class PlayingArea {
-    ArrayList<Box> area;
+    private final ArrayList<Box> area;
     private final int sizeOfArea = 24;
 
     public PlayingArea () {
@@ -25,4 +27,11 @@ public class PlayingArea {
         }
     }
 
+    public ArrayList<Box> getArea() {
+        return area;
+    }
+
+    public void loopThrough(int positionOfPlayer, Player player){
+        area.get(positionOfPlayer).trigger(player);
+    }
 }

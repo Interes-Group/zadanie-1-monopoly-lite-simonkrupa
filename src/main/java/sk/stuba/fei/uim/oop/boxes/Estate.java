@@ -1,5 +1,7 @@
 package sk.stuba.fei.uim.oop.boxes;
 
+import sk.stuba.fei.uim.oop.Player;
+
 import java.util.Random;
 
 public class Estate extends Box{
@@ -18,5 +20,10 @@ public class Estate extends Box{
 
     public int getPenalty() {
         return penalty;
+    }
+
+    @Override
+    public void trigger(Player player) {
+        System.out.println(player.getName() + " is standing on estate, press 1 to buy or 0 to pass:");
     }
 }

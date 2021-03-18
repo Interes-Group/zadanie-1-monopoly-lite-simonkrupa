@@ -1,6 +1,6 @@
 package sk.stuba.fei.uim.oop.boxes;
 
-import sk.stuba.fei.uim.oop.boxes.Box;
+import sk.stuba.fei.uim.oop.Player;
 
 public class Start extends Box {
     private final int startBonus = 1000;
@@ -11,5 +11,10 @@ public class Start extends Box {
 
     public int getStartBonus() {
         return startBonus;
+    }
+
+    @Override
+    public void trigger(Player player) {
+        player.setCash(1000);
     }
 }
