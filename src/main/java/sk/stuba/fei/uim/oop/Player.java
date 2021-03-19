@@ -51,6 +51,7 @@ public class Player {
         if (this.cash > 0){
             return true;
         } else {
+            System.out.println(this.name + ", you lost all your money, you lost :(");
             return false;
         }
     }

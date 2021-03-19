@@ -3,12 +3,13 @@ package sk.stuba.fei.uim.oop;
 
 import sk.stuba.fei.uim.oop.boxes.PlayingArea;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
     private int numberOfPlayers;
-    private Player players[];
+    private ArrayList<Player> players;
     private int playerPosition;
     private int playerThrow;
 
@@ -16,14 +17,15 @@ public class Game {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter number of players: ");
         numberOfPlayers = Integer.parseInt(myObj.nextLine());
-        players = new Player[numberOfPlayers];
+        //players = new Player[numberOfPlayers];
+        players = new ArrayList<>();
         for(int i = 0; i < numberOfPlayers; i++){
             System.out.println("Name of player number "+ (i+1) + ": ");
-            players[i] = new Player(myObj.nextLine(), i);
+            players.add(i, new Player(myObj.nextLine(), i));
         }
         PlayingArea gameArea = new PlayingArea();
         Random rand = new Random();
-        while(players.length != 1){
+        while(players.size() != 1){
             for (Player player : players) {
                 if (player.isMove()) {
                     System.out.println('\n' + player.getName() + " press enter to play: ");
@@ -33,7 +35,8 @@ public class Game {
                     playerPosition = player.getPositionOfPlayer();
                     gameArea.loopThrough(playerPosition, player);
                     if(player.checkCash()==false){
-                        //remove player;
+                        players.remove(player);
+                        break;
                     }
                     System.out.println("Your current position is: " + player.getPositionOfPlayer() + " and your budget is: " + player.getCash());
                 } else{
@@ -43,7 +46,7 @@ public class Game {
             }
         }
         if(players!=null) {
-            System.out.println(players[0].getName() + " won the game!");
+            System.out.println(players.get(0).getName() + " won the game!");
         }
     }
 
