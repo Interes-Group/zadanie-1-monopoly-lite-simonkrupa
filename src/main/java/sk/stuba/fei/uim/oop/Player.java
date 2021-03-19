@@ -47,6 +47,14 @@ public class Player {
         return move;
     }
 
+    public boolean checkCash() {
+        if (this.cash > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void setMove(boolean move) {
         this.move = move;
     }

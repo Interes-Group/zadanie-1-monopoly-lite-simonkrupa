@@ -23,7 +23,7 @@ public class Game {
         }
         PlayingArea gameArea = new PlayingArea();
         Random rand = new Random();
-        while(players.length != 0){
+        while(players.length != 1){
             for (Player player : players) {
                 if (player.isMove()) {
                     System.out.println('\n' + player.getName() + " press enter to play: ");
@@ -32,7 +32,9 @@ public class Game {
                     player.setPositionOfPlayer(playerThrow);
                     playerPosition = player.getPositionOfPlayer();
                     gameArea.loopThrough(playerPosition, player);
-
+                    if(player.checkCash()==false){
+                        //remove player;
+                    }
                     System.out.println("Your current position is: " + player.getPositionOfPlayer() + " and your budget is: " + player.getCash());
                 } else{
                     player.setMove(true);
@@ -40,5 +42,9 @@ public class Game {
                 }
             }
         }
+        if(players!=null) {
+            System.out.println(players[0].getName() + " won the game!");
+        }
     }
+
 }
