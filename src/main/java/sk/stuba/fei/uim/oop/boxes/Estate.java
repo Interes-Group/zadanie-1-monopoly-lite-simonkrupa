@@ -34,6 +34,14 @@ public class Estate extends Box{
             System.out.println("the price is " + this.price + ", press 1 to buy or 0 to pass:");
             int decision = obj.nextInt();
             if (decision == 1) {
+                if (player.getCash() - this.price <= 0){
+                    System.out.println("Warning! You do not have enough money to obtain this estate. Press 0 again to pass. If you buy it, you will lose.");
+                    decision = obj.nextInt();
+                    if (decision == 0){
+                        System.out.println("You have decided to pass.");
+                        return;
+                    }
+                }
                 buyProperty(player);
             } else {
                 System.out.println("You have decided to pass.");
