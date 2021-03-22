@@ -57,13 +57,21 @@ public class Estate extends Box{
     }
 
     public void standingOnProperty(Player player){
-        System.out.println("The owner of this property is " + this.ownership.getName() + ", you will have to pay penalty " +this.penalty +" for standing!");
-        player.setCash(-this.penalty);
-        this.ownership.setCash(this.penalty);
-        System.out.println(this.ownership.getName() + ", earned " + this.penalty + " from " + player.getName());
+        if (this.ownership.getNumOfPlayer() == player.getNumOfPlayer()){
+            System.out.println("You are standing on your own estate, enjoy.");
+        }else {
+            System.out.println("The owner of this property is " + this.ownership.getName() + ", you will have to pay penalty " + this.penalty + " for standing!");
+            player.setCash(-this.penalty);
+            this.ownership.setCash(this.penalty);
+            System.out.println(this.ownership.getName() + ", earned " + this.penalty + " from " + player.getName());
+        }
     }
 
     public int getPosition() {
         return position;
+    }
+
+    public void setOwnership(Player ownership) {
+        this.ownership = ownership;
     }
 }

@@ -16,7 +16,7 @@ public class Player {
     public Player(String name, int numOfPlayer) {
         this.name = name;
         this.numOfPlayer = numOfPlayer;
-        this.cash = 100000;
+        this.cash = 10000000;
         playerOwnership = new ArrayList<>();
     }
 
@@ -58,6 +58,10 @@ public class Player {
         if (this.cash > 0){
             return true;
         } else {
+            for (Estate estate : playerOwnership){
+                estate.setOwnership(null);
+            }
+            playerOwnership.removeAll(playerOwnership);
             System.out.println(this.name + ", you lost all your money, you lost :(");
             return false;
         }
@@ -77,5 +81,9 @@ public class Player {
             numberOfEstate.add(estate.getPosition());
         }
         return numberOfEstate;
+    }
+
+    public int getNumOfPlayer() {
+        return numOfPlayer;
     }
 }
