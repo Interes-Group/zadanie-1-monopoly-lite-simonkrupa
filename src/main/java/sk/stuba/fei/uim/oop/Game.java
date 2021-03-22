@@ -34,11 +34,14 @@ public class Game {
                     player.setPositionOfPlayer(playerThrow);
                     playerPosition = player.getPositionOfPlayer();
                     gameArea.loopThrough(playerPosition, player);
-                    if(player.checkCash()==false){
+                    if(!player.checkCash()){
                         players.remove(player);
                         break;
                     }
                     System.out.println("Your current position is: " + player.getPositionOfPlayer() + " and your budget is: " + player.getCash());
+                    if (player.getPlayerOwnership().size() != 0) {
+                        System.out.println("You own estates on this positions: " + player.getPlayerOwnership());
+                    }
                 } else{
                     player.setMove(true);
                     System.out.println('\n' + player.getName() + ", you are still in prison, wait one more round.");

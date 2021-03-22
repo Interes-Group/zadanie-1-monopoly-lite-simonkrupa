@@ -27,7 +27,7 @@ public class Estate extends Box{
     @Override
     public void trigger(Player player) {
         Scanner obj = new Scanner(System.in);
-        System.out.println(player.getName() + " is standing on estate");
+        System.out.println(player.getName() + " is standing on estate number: " + position);
         if(this.ownership!=null){
             standingOnProperty(player);
         }else {
@@ -44,6 +44,7 @@ public class Estate extends Box{
     public void buyProperty(Player player){
         System.out.println("You have decided to buy this property");
         player.setCash(-this.price);
+        player.addEstate(this);
         this.ownership = player;
     }
 
@@ -52,5 +53,9 @@ public class Estate extends Box{
         player.setCash(-this.penalty);
         this.ownership.setCash(this.penalty);
         System.out.println(this.ownership.getName() + ", earned " + this.penalty + " from " + player.getName());
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
