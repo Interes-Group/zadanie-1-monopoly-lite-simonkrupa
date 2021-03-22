@@ -1,6 +1,6 @@
 package sk.stuba.fei.uim.oop.cards;
 
-import sk.stuba.fei.uim.oop.Player;
+import sk.stuba.fei.uim.oop.players.Player;
 
 public abstract class Card {
     protected int position;

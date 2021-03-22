@@ -1,6 +1,7 @@
-package sk.stuba.fei.uim.oop;
+package sk.stuba.fei.uim.oop.games;
 
 
+import sk.stuba.fei.uim.oop.players.Player;
 import sk.stuba.fei.uim.oop.boxes.PlayingArea;
 
 import java.util.ArrayList;

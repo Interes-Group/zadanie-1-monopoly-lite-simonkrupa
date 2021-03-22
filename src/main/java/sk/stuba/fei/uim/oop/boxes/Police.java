@@ -1,6 +1,6 @@
 package sk.stuba.fei.uim.oop.boxes;
 
-import sk.stuba.fei.uim.oop.Player;
+import sk.stuba.fei.uim.oop.players.Player;
 
 public class Police extends Box{
 

@@ -1,4 +1,4 @@
-package sk.stuba.fei.uim.oop;
+package sk.stuba.fei.uim.oop.players;
 
 import sk.stuba.fei.uim.oop.boxes.Estate;
 

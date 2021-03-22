@@ -1,6 +1,6 @@
 package sk.stuba.fei.uim.oop.boxes;
 
-import sk.stuba.fei.uim.oop.Player;
+import sk.stuba.fei.uim.oop.players.Player;
 
 import java.util.Random;
 import java.util.Scanner;
