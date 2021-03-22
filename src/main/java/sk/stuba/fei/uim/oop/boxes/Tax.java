@@ -3,7 +3,7 @@ package sk.stuba.fei.uim.oop.boxes;
 import sk.stuba.fei.uim.oop.Player;
 
 public class Tax extends Box{
-    private int taxAmount = -500;
+    private final int taxAmount = -500;
 
     public Tax(int position) {
         super(position);

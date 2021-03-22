@@ -16,13 +16,6 @@ public class Estate extends Box{
         this.price = rand.nextInt((50000 - 20000) + 1) + 20000;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public int getPenalty() {
-        return penalty;
-    }
 
     @Override
     public void trigger(Player player) {

@@ -17,7 +17,6 @@ public class Game {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter number of players: ");
         numberOfPlayers = Integer.parseInt(myObj.nextLine());
-        //players = new Player[numberOfPlayers];
         players = new ArrayList<>();
         for(int i = 0; i < numberOfPlayers; i++){
             System.out.println("Name of player number "+ (i+1) + ": ");
