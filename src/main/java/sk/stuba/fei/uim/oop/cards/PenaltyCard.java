@@ -5,9 +5,6 @@ import sk.stuba.fei.uim.oop.players.Player;
 public class PenaltyCard extends Card{
     private final int penaltyAmount = 5000;
 
-    public PenaltyCard(int position) {
-        super(position);
-    }
 
     @Override
     public void functionOfCard(Player player) {

@@ -5,9 +5,6 @@ import sk.stuba.fei.uim.oop.players.Player;
 public class JackpotCard extends Card{
     private final int jackpotAmount = 10000;
 
-    public JackpotCard(int position) {
-        super(position);
-    }
 
     @Override
     public void functionOfCard(Player player) {

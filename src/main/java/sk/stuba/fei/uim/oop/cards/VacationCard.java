@@ -5,10 +5,6 @@ import sk.stuba.fei.uim.oop.players.Player;
 public class VacationCard extends Card {
     private final int vacationLength = 1;
 
-    public VacationCard(int position) {
-        super(position);
-    }
-
     @Override
     public void functionOfCard(Player player) {
         System.out.println(player.getName() + ", you went on a vacation.");

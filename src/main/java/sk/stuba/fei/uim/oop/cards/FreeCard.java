@@ -3,9 +3,7 @@ package sk.stuba.fei.uim.oop.cards;
 import sk.stuba.fei.uim.oop.players.Player;
 
 public class FreeCard extends Card{
-    public FreeCard(int position) {
-        super(position);
-    }
+
 
     @Override
     public void functionOfCard(Player player) {

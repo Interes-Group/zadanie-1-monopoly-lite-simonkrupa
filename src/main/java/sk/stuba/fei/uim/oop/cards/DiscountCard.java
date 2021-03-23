@@ -3,9 +3,6 @@ package sk.stuba.fei.uim.oop.cards;
 import sk.stuba.fei.uim.oop.players.Player;
 
 public class DiscountCard extends Card{
-    public DiscountCard(int position) {
-        super(position);
-    }
 
     @Override
     public void functionOfCard(Player player) {

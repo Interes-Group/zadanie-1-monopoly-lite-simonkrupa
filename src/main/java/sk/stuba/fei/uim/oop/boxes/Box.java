@@ -2,6 +2,7 @@ package sk.stuba.fei.uim.oop.boxes;
 
 import sk.stuba.fei.uim.oop.players.Player;
 
+
 public abstract class Box {
     protected int position;
 
