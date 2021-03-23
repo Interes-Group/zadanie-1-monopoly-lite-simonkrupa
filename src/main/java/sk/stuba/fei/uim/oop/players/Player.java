@@ -11,12 +11,13 @@ public class Player {
     private int cash;
     private boolean move = true;
     private ArrayList<Estate> playerOwnership;
+    private boolean freeCard = false;
 
 
     public Player(String name, int numOfPlayer) {
         this.name = name;
         this.numOfPlayer = numOfPlayer;
-        this.cash = 10000000;
+        this.cash = 100000;
         playerOwnership = new ArrayList<>();
     }
 
@@ -85,5 +86,13 @@ public class Player {
 
     public int getNumOfPlayer() {
         return numOfPlayer;
+    }
+
+    public boolean isFreeCard() {
+        return freeCard;
+    }
+
+    public void setFreeCard(boolean freeCard) {
+        this.freeCard = freeCard;
     }
 }

@@ -9,6 +9,7 @@ public class Estate extends Box{
     private final int penalty;
     private final int price;
     private Player ownership = null;
+    
     public Estate(int position){
         super(position);
         Random rand = new Random();
@@ -54,9 +55,19 @@ public class Estate extends Box{
             System.out.println("You are standing on your own estate, enjoy.");
         }else {
             System.out.println("The owner of this property is " + this.ownership.getName() + ", you will have to pay penalty " + this.penalty + " for standing!");
-            player.setCash(-this.penalty);
-            this.ownership.setCash(this.penalty);
-            System.out.println(this.ownership.getName() + ", earned " + this.penalty + " from " + player.getName());
+            if (player.isFreeCard()){
+                System.out.println("You have Free Card, press 1 to use it and you will not have to pay or press 0 to not use teh card:");
+                Scanner obj = new Scanner(System.in);
+                int decision = obj.nextInt();
+                if(decision==1){
+                    System.out.println("You have used your Free Card, you will not pay for standing on this estate this round.");
+                    player.setFreeCard(false);
+                }else{
+                    player.setCash(-this.penalty);
+                    this.ownership.setCash(this.penalty);
+                    System.out.println(this.ownership.getName() + ", earned " + this.penalty + " from " + player.getName());
+                }
+            }
         }
     }
 
