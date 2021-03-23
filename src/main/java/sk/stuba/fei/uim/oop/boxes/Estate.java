@@ -26,6 +26,9 @@ public class Estate extends Box{
             standingOnProperty(player);
         }else {
             System.out.println("the price is " + this.price + ", press 1 to buy or 0 to pass:");
+            if (player.isDiscountCard()){
+                System.out.println("You own Discount Card, press 2 to buy this property with 100% discount:");
+            }
             int decision = obj.nextInt();
             if (decision == 1) {
                 if (player.getCash() - this.price <= 0){
@@ -37,10 +40,21 @@ public class Estate extends Box{
                     }
                 }
                 buyProperty(player);
-            } else {
+            }else if(decision == 2){
+                buyPropertyDiscount(player);
+            }
+            else {
                 System.out.println("You have decided to pass.");
             }
         }
+    }
+
+
+    public void buyPropertyDiscount(Player player){
+        System.out.println("You have decided to buy this property with discount");
+        player.addEstate(this);
+        this.ownership = player;
+        player.setDiscountCard(false);
     }
 
     public void buyProperty(Player player){
