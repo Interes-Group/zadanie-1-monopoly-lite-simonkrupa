@@ -36,7 +36,7 @@ public class Estate extends Box{
                 if (decision==2 && player.isDiscountCard()){
                     break;
                 }
-                System.out.println("Please, choose between 1 or 0");
+                System.out.println("Please, choose between 1 or 0 or 2(if you own Discount Card)");
                 decision = KeyboardInput.readInt();
             }
             if (decision == 1) {

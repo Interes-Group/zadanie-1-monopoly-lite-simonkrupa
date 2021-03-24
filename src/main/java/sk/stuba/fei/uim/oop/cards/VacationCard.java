@@ -9,6 +9,6 @@ public class VacationCard extends Card {
     public void functionOfCard(Player player) {
         System.out.println(player.getName() + ", you went on a vacation.");
         System.out.println("You will rest " + vacationLength + " round on vacation, enjoy.");
-        player.setMove(false);
+        player.setVacation(false);
     }
 }

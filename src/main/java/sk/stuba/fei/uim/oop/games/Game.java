@@ -32,11 +32,12 @@ public class Game {
         Random rand = new Random();
         while(players.size() != 1){
             for (Player player : players) {
-                if (player.isMove()) {
+                if (player.isVacation() && player.isPrison()) {
                     System.out.println('\n' + player.getName() + " press enter to play: ");
                     //myObj.nextLine();
                     KeyboardInput.readString();
-                    playerThrow = rand.nextInt((6 - 1) + 1) + 1;
+                    //playerThrow = rand.nextInt((6 - 1) + 1) + 1;
+                    playerThrow = 3;
                     player.setPositionOfPlayer(playerThrow);
                     playerPosition = player.getPositionOfPlayer();
                     gameArea.loopThrough(playerPosition, player);
@@ -49,8 +50,13 @@ public class Game {
                         System.out.println("You own estates on this positions: " + player.getPlayerOwnership());
                     }
                 } else{
-                    player.setMove(true);
-                    System.out.println('\n' + player.getName() + ", you are still in prison, wait one more round.");
+                    if(!player.isPrison()){
+                        player.setPrison(true);
+                        System.out.println('\n' + player.getName() + ", you are still in prison, wait one more round.");
+                    }else if(!player.isVacation()){
+                        player.setVacation(true);
+                        System.out.println('\n' + player.getName() + ", you are still on vacation, wait one more round.");
+                    }
                 }
             }
         }

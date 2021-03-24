@@ -9,7 +9,8 @@ public class Player {
     private int numOfPlayer;
     private int positionOfPlayer;
     private int cash;
-    private boolean move = true;
+    private boolean prison = true;
+    private boolean vacation = true;
     private ArrayList<Estate> playerOwnership;
     private boolean freeCard = false;
     private boolean discountCard = false;
@@ -52,9 +53,11 @@ public class Player {
         this.cash = this.cash + cash;
     }
 
-    public boolean isMove() {
-        return move;
+    public boolean isPrison() {
+        return prison;
     }
+
+    public boolean isVacation(){return vacation;}
 
     public boolean checkCash() {
         if (this.cash > 0){
@@ -69,8 +72,12 @@ public class Player {
         }
     }
 
-    public void setMove(boolean move) {
-        this.move = move;
+    public void setPrison(boolean prison) {
+        this.prison = prison;
+    }
+
+    public void setVacation(boolean vacation) {
+        this.vacation = vacation;
     }
 
     public void addEstate(Estate estate){
