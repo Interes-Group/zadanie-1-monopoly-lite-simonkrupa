@@ -1,12 +1,13 @@
 package sk.stuba.fei.uim.oop.games;
 
 
+import sk.stuba.fei.uim.oop.KeyboardInput;
 import sk.stuba.fei.uim.oop.players.Player;
 import sk.stuba.fei.uim.oop.boxes.PlayingArea;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Game {
     private int numberOfPlayers;
@@ -15,13 +16,17 @@ public class Game {
     private int playerThrow;
 
     public Game() {
-        Scanner myObj = new Scanner(System.in);
+        //Scanner myObj = new Scanner(System.in);
         System.out.println("Enter number of players: ");
-        numberOfPlayers = Integer.parseInt(myObj.nextLine());
+        //numberOfPlayers = Integer.parseInt(myObj.nextLine());
+        numberOfPlayers = KeyboardInput.readInt();
+        if (numberOfPlayers <= 1){
+            throw new IllegalArgumentException("Pocet hracov musi byt vacsii ako 1");
+        }
         players = new ArrayList<>();
         for(int i = 0; i < numberOfPlayers; i++){
             System.out.println("Name of player number "+ (i+1) + ": ");
-            players.add(i, new Player(myObj.nextLine(), i));
+            players.add(i, new Player(KeyboardInput.readString(), i));
         }
         PlayingArea gameArea = new PlayingArea();
         Random rand = new Random();
@@ -29,7 +34,8 @@ public class Game {
             for (Player player : players) {
                 if (player.isMove()) {
                     System.out.println('\n' + player.getName() + " press enter to play: ");
-                    myObj.nextLine();
+                    //myObj.nextLine();
+                    KeyboardInput.readString();
                     playerThrow = rand.nextInt((6 - 1) + 1) + 1;
                     player.setPositionOfPlayer(playerThrow);
                     playerPosition = player.getPositionOfPlayer();

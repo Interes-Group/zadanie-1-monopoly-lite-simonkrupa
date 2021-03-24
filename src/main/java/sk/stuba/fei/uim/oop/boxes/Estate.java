@@ -1,9 +1,10 @@
 package sk.stuba.fei.uim.oop.boxes;
 
+import sk.stuba.fei.uim.oop.KeyboardInput;
 import sk.stuba.fei.uim.oop.players.Player;
 
 import java.util.Random;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Estate extends Box{
     private final int penalty;
@@ -20,7 +21,7 @@ public class Estate extends Box{
 
     @Override
     public void trigger(Player player) {
-        Scanner obj = new Scanner(System.in);
+        //Scanner obj = new Scanner(System.in);
         System.out.println(player.getName() + " is standing on estate number: " + position);
         if(this.ownership!=null){
             standingOnProperty(player);
@@ -29,11 +30,13 @@ public class Estate extends Box{
             if (player.isDiscountCard()){
                 System.out.println("You own Discount Card, press 2 to buy this property with 100% discount:");
             }
-            int decision = obj.nextInt();
+            //int decision = obj.nextInt();
+            int decision = KeyboardInput.readInt();
             if (decision == 1) {
                 if (player.getCash() - this.price <= 0){
                     System.out.println("Warning! You do not have enough money to obtain this estate. Press 0 again to pass. If you buy it, you will lose.");
-                    decision = obj.nextInt();
+                    //decision = obj.nextInt();
+                    decision = KeyboardInput.readInt();
                     if (decision == 0){
                         System.out.println("You have decided to pass.");
                         return;
@@ -71,8 +74,9 @@ public class Estate extends Box{
             System.out.println("The owner of this property is " + this.ownership.getName() + ", you will have to pay penalty " + this.penalty + " for standing!");
             if (player.isFreeCard()){
                 System.out.println("You have Free Card, press 1 to use it and you will not have to pay or press 0 to not use teh card:");
-                Scanner obj = new Scanner(System.in);
-                int decision = obj.nextInt();
+                //Scanner obj = new Scanner(System.in);
+                //int decision = obj.nextInt();
+                int decision = KeyboardInput.readInt();
                 if(decision==1){
                     System.out.println("You have used your Free Card, you will not pay for standing on this estate this round.");
                     player.setFreeCard(false);
