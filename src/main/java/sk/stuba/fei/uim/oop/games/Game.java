@@ -12,10 +12,14 @@ import java.util.Random;
 public class Game {
     private int numberOfPlayers;
     private ArrayList<Player> players;
-    private int playerPosition;
-    private int playerThrow;
+    private PlayingArea gameArea;
 
     public Game() {
+        gameInit();
+        gamePlay();
+    }
+
+    private void gameInit(){
         System.out.println("Enter number of players: ");
         numberOfPlayers = KeyboardInput.readInt();
         if (numberOfPlayers <= 1){
@@ -26,7 +30,12 @@ public class Game {
             System.out.println("Name of player number "+ (i+1) + ": ");
             players.add(i, new Player(KeyboardInput.readString(), i));
         }
-        PlayingArea gameArea = new PlayingArea();
+        gameArea = new PlayingArea();
+    }
+
+    private void gamePlay(){
+        int playerPosition;
+        int playerThrow;
         Random rand = new Random();
         while(players.size() != 1){
             for (Player player : players) {
@@ -34,7 +43,6 @@ public class Game {
                     System.out.println('\n' + player.getName() + " press enter to play: ");
                     KeyboardInput.readString();
                     playerThrow = rand.nextInt((6 - 1) + 1) + 1;
-
                     player.setPositionOfPlayer(playerThrow);
                     playerPosition = player.getPositionOfPlayer();
                     gameArea.loopThrough(playerPosition, player);
@@ -47,18 +55,21 @@ public class Game {
                         System.out.println("You own estates on this positions: " + player.getPlayerOwnership());
                     }
                 } else{
-                    if(!player.isPrison()){
-                        player.setPrison(true);
-                        System.out.println('\n' + player.getName() + ", you are still in prison, wait one more round.");
-                    }else if(!player.isVacation()){
-                        player.setVacation(true);
-                        System.out.println('\n' + player.getName() + ", you are still on vacation, wait one more round.");
-                    }
+                    prisonVacationInfo(player);
                 }
             }
         }
         System.out.println(players.get(0).getName() + " won the game!");
+    }
 
+    private void prisonVacationInfo(Player player){
+        if(!player.isPrison()){
+            player.setPrison(true);
+            System.out.println('\n' + player.getName() + ", you are still in prison, wait one more round.");
+        }else if(!player.isVacation()){
+            player.setVacation(true);
+            System.out.println('\n' + player.getName() + ", you are still on vacation, wait one more round.");
+        }
     }
 
 }

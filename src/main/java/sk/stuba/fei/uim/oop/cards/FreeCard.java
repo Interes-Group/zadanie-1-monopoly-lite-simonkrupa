@@ -4,7 +4,6 @@ import sk.stuba.fei.uim.oop.players.Player;
 
 public class FreeCard extends Card{
 
-
     @Override
     public void functionOfCard(Player player) {
         System.out.println(player.getName() + ", you have won Free Card!");

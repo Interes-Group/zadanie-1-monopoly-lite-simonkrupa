@@ -42,10 +42,6 @@ public class PlayingArea {
         }
     }
 
-    public ArrayList<Box> getArea() {
-        return area;
-    }
-
     public void loopThrough(int positionOfPlayer, Player player){
         if (area.get(positionOfPlayer) instanceof Chance){
             if (this.cards.isEmpty()){

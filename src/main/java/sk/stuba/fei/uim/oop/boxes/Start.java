@@ -9,13 +9,9 @@ public class Start extends Box {
         super(position);
     }
 
-    public int getStartBonus() {
-        return startBonus;
-    }
-
     @Override
     public void trigger(Player player) {
         System.out.println(player.getName() + " you are standing on Start, you have received extra 1000 cash");
-        player.setCash(1000);
+        player.setCash(startBonus);
     }
 }

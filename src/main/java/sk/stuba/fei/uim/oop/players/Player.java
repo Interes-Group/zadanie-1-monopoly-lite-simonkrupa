@@ -5,8 +5,8 @@ import sk.stuba.fei.uim.oop.boxes.Estate;
 import java.util.ArrayList;
 
 public class Player {
-    private String name;
-    private int numOfPlayer;
+    private final String name;
+    private final int numOfPlayer;
     private int positionOfPlayer;
     private int cash;
     private boolean prison = true;
