@@ -1,7 +1,7 @@
 package sk.stuba.fei.uim.oop.games;
 
 
-import sk.stuba.fei.uim.oop.KeyboardInput;
+import sk.stuba.fei.uim.oop.ZKlavesnice;
 import sk.stuba.fei.uim.oop.players.Player;
 import sk.stuba.fei.uim.oop.boxes.PlayingArea;
 
@@ -20,15 +20,14 @@ public class Game {
     }
 
     private void gameInit(){
-        System.out.println("Enter number of players: ");
-        numberOfPlayers = KeyboardInput.readInt();
-        if (numberOfPlayers <= 1){
-            throw new IllegalArgumentException("Pocet hracov musi byt vacsii ako 1");
+        numberOfPlayers = ZKlavesnice.readInt("Enter number of players:");
+        while(numberOfPlayers<=1){
+            System.out.println("Minimal number of players is 2");
+            numberOfPlayers = ZKlavesnice.readInt("Enter number of players:");
         }
         players = new ArrayList<>();
         for(int i = 0; i < numberOfPlayers; i++){
-            System.out.println("Name of player number "+ (i+1) + ": ");
-            players.add(i, new Player(KeyboardInput.readString(), i));
+            players.add(i, new Player(ZKlavesnice.readString("Name of player number " + (i+1) + ":"), i));
         }
         gameArea = new PlayingArea();
     }
@@ -40,8 +39,7 @@ public class Game {
         while(players.size() != 1){
             for (Player player : players) {
                 if (player.isVacation() && player.isPrison()) {
-                    System.out.println('\n' + player.getName() + " press enter to play: ");
-                    KeyboardInput.readString();
+                    ZKlavesnice.readString('\n' + player.getName() + " press enter to play: ");
                     playerThrow = rand.nextInt((6 - 1) + 1) + 1;
                     player.setPositionOfPlayer(playerThrow);
                     playerPosition = player.getPositionOfPlayer();

@@ -1,6 +1,6 @@
 package sk.stuba.fei.uim.oop.boxes;
 
-import sk.stuba.fei.uim.oop.KeyboardInput;
+import sk.stuba.fei.uim.oop.ZKlavesnice;
 import sk.stuba.fei.uim.oop.players.Player;
 
 import java.util.Random;
@@ -28,20 +28,23 @@ public class Estate extends Box{
             if (player.isDiscountCard()){
                 System.out.println("You own Discount Card, press 2 to buy this property with 100% discount:");
             }
-            int decision = KeyboardInput.readInt();
+            int decision = ZKlavesnice.readInt("");
             while(decision != 1 && decision != 0){
                 if (decision==2 && player.isDiscountCard()){
                     break;
                 }
                 System.out.println("Please, choose between 1 or 0 or 2(if you own Discount Card)");
-                decision = KeyboardInput.readInt();
+                decision = ZKlavesnice.readInt("");
             }
             if (decision == 1) {
                 if (player.getCash() - this.price <= 0){
                     System.out.println("Warning! You do not have enough money to obtain this estate. Press 0 again to pass. If you buy it, you will lose.");
-                    decision = KeyboardInput.readInt();
+                    decision = ZKlavesnice.readInt("");
                     if (decision == 0){
                         System.out.println("You have decided to pass.");
+                        return;
+                    }else if(decision == 2 && player.isDiscountCard()){
+                        buyPropertyDiscount(player);
                         return;
                     }
                 }
@@ -77,7 +80,7 @@ public class Estate extends Box{
             System.out.println("The owner of this property is " + this.ownership.getName() + ", you will have to pay penalty " + this.penalty + " for standing!");
             if (player.isFreeCard()) {
                 System.out.println("You have Free Card, press 1 to use it and you will not have to pay or press 0 to not use teh card:");
-                int decision = KeyboardInput.readInt();
+                int decision = ZKlavesnice.readInt("");
                 if (decision == 1) {
                     System.out.println("You have used your Free Card, you will not pay for standing on this estate this round.");
                     player.setFreeCard(false);
